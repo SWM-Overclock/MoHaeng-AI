@@ -1,7 +1,10 @@
 import pymongo
+import os
+from dotenv import load_dotenv
 
-HOST = 'localhost'
-PORT = 27017
+load_dotenv()
+HOST = os.getenv("DB_HOST")
+PORT = int(os.getenv("DB_PORT"))
 
 client = pymongo.MongoClient(HOST, PORT)
 db = client['Mohaeng']
